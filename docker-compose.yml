@@ -1,0 +1,28 @@
+version: '3.0'
+services:
+  db:
+    image: mariadb
+    container_name: some-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: redmine
+    restart: always
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: some-phpmyadmin
+    depends_on: 
+      - db
+    ports:
+      - 8080:80
+    restart: always
+  redmine: 
+    image: docker.io/jhaoheng/redmine-max:v1.0
+    container_name: some-redmine
+    ports:
+      - 3000:3000
+    environment:
+      REDMINE_DB_MYSQL: db
+      REDMINE_DB_PASSWORD: root
+    depends_on:
+      - db
+    restart: always 
