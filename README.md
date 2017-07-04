@@ -18,4 +18,12 @@
 3. phpmyadmin
     - localhost:8080
     - root/root
-    
+
+## redmine 已加入的 plugin
+- [Project Table](http://www.redmine.org/plugins/projects_table)  
+- [Redmine Lightbox2](https://github.com/paginagmbh/redmine_lightbox2)
+- [Attach image from clipboard](http://www.redmine.org/plugins/clipboard_image_paste)
+- [redmine_checklists](http://www.redminecrm.com/projects/checklist/pages/1)
+- [sidebar_hide](https://github.com/bdemirkir/sidebar_hide)
+
+![img](./plugins.png)

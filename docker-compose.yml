@@ -16,13 +16,14 @@ services:
       - 8080:80
     restart: always
   redmine: 
-    image: docker.io/jhaoheng/redmine-max:v1.0
+    image: docker.io/jhaoheng/redmine-max:v2.0
     container_name: some-redmine
     ports:
       - 3000:3000
     environment:
       REDMINE_DB_MYSQL: db
       REDMINE_DB_PASSWORD: root
+      REDMINE_PLUGINS_MIGRATE: 1
     depends_on:
       - db
     restart: always 
