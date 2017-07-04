@@ -10,10 +10,6 @@
 4. 可至設定中，更新 theme
 5. 可至設定中，測試 mail 寄送
 
-## theme
-
-- abacus theme 1.0.9
-
 ## docker container
 1. mysql
     - 預設為 utf-8
