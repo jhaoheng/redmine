@@ -1,2 +1,2 @@
-FROM        docker.io/jhaoheng/redmine-max:v2.0
+FROM        docker.io/jhaoheng/redmine-max:v3.0
 COPY        ./configuration.yml  /usr/src/redmine/config/

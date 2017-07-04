@@ -18,7 +18,7 @@ services:
     restart: always
   redmine: 
     build: .
-    image: docker.io/jhaoheng/redmine-max:v2.0
+    image: docker.io/jhaoheng/redmine-max:v3.0
     container_name: redmine-main
     ports:
       - 2000:3000
