@@ -1,26 +1,27 @@
 version: '3.0'
 services:
   db:
-    image: mariadb
-    container_name: some-mysql
+    image: mysql
+    container_name: redmine-mysql
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: redmine
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     restart: always
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
-    container_name: some-phpmyadmin
+    container_name: redmine-phpmyadmin
     depends_on: 
       - db
     ports:
-      - 8080:80
+      - 2001:80
     restart: always
   redmine: 
     build: .
     image: docker.io/jhaoheng/redmine-max:v2.0
-    container_name: some-redmine
+    container_name: redmine-main
     ports:
-      - 3000:3000
+      - 2000:3000
     environment:
       REDMINE_DB_MYSQL: db
       REDMINE_DB_PASSWORD: root

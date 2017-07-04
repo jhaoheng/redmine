@@ -15,11 +15,12 @@
 ## docker container create
 
 1. mysql
+    - 預設為 utf-8
 2. redmine
-    - localhost:3000
+    - localhost:2000
     - admin/admin
 3. phpmyadmin
-    - localhost:8080
+    - localhost:2001
     - root/root
 
 ## redmine 已加入的 plugin
