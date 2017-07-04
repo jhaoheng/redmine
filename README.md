@@ -1,9 +1,12 @@
 # how to use
 
-1. docker-compose up -d
-2. 等待約 3 分鐘，redmine 會被建立起來
-3. 第一次登入，會要求 admin 更新密碼
+1. docker-compose build
+    - 若要開啟 email(google) 寄送功能，填寫 configuration.yml，設定好帳號密碼
+2. docker-compose up -d 
+    - 等待約 3 分鐘，redmine 會被建立起來
+3. 第一次登入，會要求 admin 更新密碼，密碼長度請超過 8 碼
 4. 可至設定中，更新 theme
+5. 可至設定中，測試 mail 寄送
 
 ## theme
 

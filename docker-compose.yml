@@ -16,6 +16,7 @@ services:
       - 8080:80
     restart: always
   redmine: 
+    build: .
     image: docker.io/jhaoheng/redmine-max:v2.0
     container_name: some-redmine
     ports:
