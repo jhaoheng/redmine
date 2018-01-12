@@ -1,31 +1,36 @@
 version: '3.0'
 services:
-  db:
-    image: mysql
-    container_name: redmine-mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: redmine
-    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
-    restart: always
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     container_name: redmine-phpmyadmin
     depends_on: 
       - db
     ports:
-      - 2001:80
+      - 8001:80
     restart: always
-  redmine: 
-    build: .
-    image: docker.io/jhaoheng/redmine-max:v3.0
-    container_name: redmine-main
+
+  db:
+    image: mariadb:10.2.12
+    container_name: redmine-mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: redmine
+    restart: always
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+
+  redmine:
+    image: redmine:3.3.6
+    container_name: redmine
     ports:
-      - 2000:3000
+      - 8000:3000
     environment:
       REDMINE_DB_MYSQL: db
       REDMINE_DB_PASSWORD: root
       REDMINE_PLUGINS_MIGRATE: 1
     depends_on:
       - db
-    restart: always 
+    volumes:
+      - ./theme/abacus_office_blues_1.2.6:/usr/src/redmine/public/themes/abacus_office_blues_1.2.6
+      - ./config/configuration.yml:/usr/src/redmine/config/configuration.yml
+      - ./plugins/plugins.sh:/usr/src/plugins/plugins.sh
+    restart: always

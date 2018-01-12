@@ -1,0 +1,796 @@
+@import url("variables.less");
+@import url("mixins.less");
+
+/* ==========================================================================
+   General FA declaration
+   ========================================================================== */
+   
+.fa:before {
+  font-size: 16px !important;
+  color: @icon-color;
+  margin-right: 8px;
+  -webkit-font-smoothing: grayscale !important;
+  -moz-osx-font-smoothing: grayscale !important;
+}
+
+.fa {
+  font-family: @font-family-base !important;
+  -webkit-font-smoothing: subpixel-antialiased !important;
+  -moz-osx-font-smoothing: auto !important;
+  font-smooth: auto !important;
+}
+
+/*
+ * General declaration
+ */
+
+#header #main-menu li a.new-issue, 
+#quick-search label a, 
+.toggle-multiselect, 
+a.remove-upload, 
+#account .icon-stop, 
+.icon-start, 
+.contextual .icon-stop,
+.checklist-item span.icon-add,
+.icon.found.icon-checked,
+.icon.unknown,
+.icon.found.icon-warning,
+#rdb-refresh,
+.rdb-checkbox-link,
+#rdb-reset,
+#rdb-option-fullscreen,
+.sort-handle,
+#admin-menu a,
+tr.issue.idnt td.subject a,
+#deal_contact_id_add_link, 
+#expense_contact_id_add_link, 
+#invoice_contact_id_add_link,
+.icon-order-add,
+#top-menu #loggedas > a,
+#account, 
+.icon-user,
+span.search_for_watchers a, 
+.icon-add, 
+span.add_attachment a, 
+a#attach_files_link, 
+#add_issue_link, 
+#contact_projects .contextual a, 
+#sidebar #watchers .contextual a, 
+#deal_contacts .contextual a, 
+#contact_issues .contextual a, 
+#sidebar #accounts_stat .contextual a,
+div.projects h3,
+div.news h3,
+.my-project, 
+.icon-fav-off, 
+.icon-fav {
+    
+    &:before {
+      font-size: 16px !important;
+      margin-right: 8px;
+      display: inline-block;
+      font: normal normal normal 14px/1 FontAwesome;
+      font-size: inherit;
+      text-rendering: auto;
+    }
+}
+
+/*
+ * Top Menu and JS Menu declaration
+ */
+
+#top-menu,
+.js-general-menu {
+    
+    a.home,
+    a.my-page,
+    a.projects,
+    a.issues,
+    a.spent_time,
+    a.administration,
+    a.help,
+    a.contacts,
+    a.time-tracker-main-menu,
+    a.icon-pause-action,
+    a.questions,
+    a.finance,
+    a.products,
+    a.orders,
+    a.archived-repositories,
+    a.invoices,
+    a.expenses,
+    a.people,
+    a.deals,
+    a.agile,
+    a.easy-gantt {
+        
+        &:before {
+          margin-right: 8px;
+          display: inline-block;
+          font: normal normal normal 14px/1 FontAwesome;
+          font-size: inherit;
+          text-rendering: auto;
+        }
+    }  
+}
+
+/* ==========================================================================
+   Hide background images
+   ========================================================================== */
+   
+.fa, .fa.icon,
+.controller-sprints .contextual .icon,
+.controller-product_backlog .contextual .icon,
+#rdb-refresh,
+.rdb-checkbox-link,
+#rdb-reset,
+#rdb-option-fullscreen {
+  background-image: none !important; 
+}
+
+/* ==========================================================================
+   Add icon - plus circle
+   ========================================================================== */
+   
+span.search_for_watchers a, 
+.icon-add, span.add_attachment a, 
+a#attach_files_link, 
+#add_issue_link, 
+#contact_projects .contextual a, 
+#sidebar #watchers .contextual a, 
+#deal_contacts .contextual a, 
+#contact_issues .contextual a, 
+#sidebar #accounts_stat .contextual a {
+    
+    &:before {
+      .transition;
+      content: "\f055";
+      color: @green;
+    }
+    
+    &:hover:before,
+    &:focus:before,
+    &:active:before {
+      .rotate;
+    }
+}
+
+/*
+ * Admin menu
+ * divided from the preceding code because there has to be left padding 0
+ */
+ 
+#admin-menu a.sidebar,
+#admin-menu a.projects,
+#admin-menu a.users,
+#admin-menu a.groups,
+#admin-menu a.roles,
+#admin-menu a.trackers,
+#admin-menu a.issue_statuses,
+#admin-menu a.workflows,
+#admin-menu a.custom_fields,
+#admin-menu a.enumerations,
+#admin-menu a.settings,
+#admin-menu a.server_authentication,
+#admin-menu a.agile,
+#admin-menu a.contacts,
+#admin-menu a.helpdesk,
+#admin-menu a.invoices,
+#admin-menu a.finance,
+#admin-menu a.login-audit,
+#admin-menu a.people,
+#admin-menu a.products,
+#admin-menu a.plugins,
+#admin-menu a.info,
+#admin-menu a.redmine-git-hosting,
+#admin-menu a.cm-menu,
+#admin-menu a.approvalworkflows,
+#admin-menu a.cms {
+  background-image: none !important; 
+  padding-left: 0 !important;
+}
+
+
+/* ==========================================================================
+   Hide img tag
+   ========================================================================== */
+   
+.controller-documents .attachments p a:nth-child(2) img, .controller-wiki .attachments p a:nth-child(2) img, .time-entries td.buttons a:first-child img, .time-entries td.buttons a:last-child img, .edit_issue #all_attributes > p:nth-child(5) img, .delete img, .controller-reports h3 a img, table.list td.reorder a img, .controller-workflows form p a img, .controller-workflows.action-edit table.list img, #commit-keywords td.buttons a.add-commit-keywords img, #commit-keywords td.buttons a.delete-commit-keywords img, #history div.journal .wiki.editable .contextual a:first-child img, #history div.journal .wiki.editable .contextual a:last-child img, #deal_contact_id_add_link img, #expense_contact_id_add_link img, #invoice_contact_id_add_link img, #ticket_data .attachment a:last-child img, #relations tr.issue .buttons a img, .controller-messages .message.reply > .contextual a:nth-child(1) img, .controller-messages .message.reply > .contextual a:nth-child(2) img, .controller-messages .message.reply > .contextual a:nth-child(3) img, table.list.files td.buttons a img, .controller-wiki .contextual a:first-child img, .issue .attachments .contextual > a img, .message .attachments .contextual > a img, .controller-messages .message.reply > .contextual a:nth-child(4) img, #invoice_payments .contextual > a img, .controller-invoices #comments .contextual > a img, #content div.attachments .contextual > a img, #content #comments .contextual > a img {
+  display: none !important;
+}
+
+/* ==========================================================================
+   Top menu
+   ========================================================================== */
+   
+/*
+ * Declare bg none for menu items that are covered below --> this will remove default bg img from items that FA is declared for
+ */
+ 
+#top-menu,
+.js-general-menu {
+    
+    a.home,
+    a.my-page,
+    a.projects,
+    a.issues,
+    a.spent_time,
+    a.administration,
+    a.help,
+    a.easy-gantt,
+    a.contacts,
+    a.time-tracker-main-menu,
+    a.icon-pause-action,
+    a.questions,
+    a.finance,
+    a.expenses,
+    a.products,
+    a.orders,
+    a.archived-repositories,
+    a.invoices,
+    a.people,
+    a.deals,
+    a.agile,
+    a.my-account,
+    a.logout {
+      background: none;
+    }  
+}
+
+#top-menu,
+.js-general-menu {
+    
+    li a {
+      background: url("../../images/default-icon.png") no-repeat left center;
+    }  
+    
+    a.home:before {
+      content: "\f015";
+    }
+    
+    a.my-page:before {
+      content: "\f0e4";
+    }
+    
+    a.projects:before {
+      content: "\f03a";
+    }
+    
+    a.issues:before{
+      content: "\f0ae";
+    }
+    
+    a.spent_time:before {
+      content: "\f017";
+    }
+    
+    a.administration:before {
+     content: "\f013"; 
+    }
+    
+    a.help:before {
+     content: "\f1cd"; 
+    }
+    
+    a.easy-gantt:before {
+      content: "\f1fe";
+    }
+    
+    a.contacts:before {
+      content: "\f003";
+    }
+    
+    a.time-tracker-main-menu:before,
+    a.icon-pause-action:before {
+      content: "\f04b";
+    }
+    
+    a.help:before, 
+    a.questions:before {
+      content: "\f1cd";
+    }
+    
+    a.finance:before,
+    a.expenses:before  {
+     content: "\f155"; 
+    }
+    
+    a.products:before {
+      content: "\f06b";
+    }
+    
+    a.orders:before {
+      content: "\f07a";
+    }
+    
+    a.archived-repositories:before {
+      content: "\f187";
+    }
+    
+    a.invoices:before {
+      content: "\f0f6";
+    }
+    
+    a.people:before {
+      content: "\f0c0";
+    }
+    
+    a.deals:before {
+      content: "\f0a4";
+    }
+    
+    a.agile:before {
+      content: "\f009";
+    }
+    
+}
+
+#top-menu ul a:before {
+  font-size: 16px;
+}
+
+tr.issue.idnt td.subject a:before {
+  content: "\f0da";
+}
+
+#deal_contact_id_add_link:before, 
+#expense_contact_id_add_link:before, 
+#invoice_contact_id_add_link:before {
+  content: "\f055";
+}
+
+#top-menu #loggedas > a:before {
+  content: "\f201";
+}
+
+#account:before,
+.icon-user:before {
+  content: "\f007";
+}
+
+
+/* ==========================================================================
+   Admin menu
+   ========================================================================== */
+
+#admin-menu {
+  
+  a.projects:before {
+   content: "\f03a"; 
+  } 
+  
+  a.users:before {
+   content: "\f007"; 
+  } 
+  
+  a.groups:before {
+   content: "\f0c0"; 
+  } 
+  
+  a.roles:before {
+   content: "\f1c0"; 
+  } 
+  
+  a.trackers:before {
+   content: "\f0c8"; 
+  } 
+  
+  a.issue_statuses:before {
+   content: "\f0f6"; 
+  } 
+  
+  a.workflows:before {
+   content: "\f0a4"; 
+  } 
+  
+  a.custom_fields:before {
+   content: "\f152"; 
+  } 
+  
+  a.enumerations:before {
+   content: "\f0cb"; 
+  } 
+  
+  a.sidebar:before {
+   content: "\f0c9"; 
+  } 
+  
+  a.settings:before {
+   content: "\f013"; 
+  }  
+  
+  a.server_authentication:before {
+   content: "\f084"; 
+  }  
+  
+  a.agile:before {
+   content: "\f009"; 
+  }   
+  
+  a.contacts:before {
+   content: "\f0e0"; 
+  }  
+  
+  a.helpdesk:before {
+   content: "\f1cd"; 
+  }
+  
+  a.invoices:before {
+   content: "\f0f6"; 
+  }  
+  
+  a.finance:before {
+   content: "\f155"; 
+  } 
+  
+  a.login-audit:before {
+   content: "\f090"; 
+  } 
+  
+  a.people:before {
+   content: "\f0c0"; 
+  } 
+  
+  a.products:before {
+   content: "\f07a"; 
+  } 
+  
+  a.plugins:before {
+   content: "\f12e"; 
+  } 
+  
+  a.info:before {
+   content: "\f05a"; 
+  } 
+  
+  a.redmine-git-hosting:before {
+   content: "\f1d2"; 
+  } 
+  
+  a.cm-menu:before {
+   content: "\f022"; 
+  } 
+  
+  a.approvalworkflows:before {
+   content: "\f0f6"; 
+  } 
+  
+  a.cms:before {
+   content: "\f108"; 
+  } 
+}
+
+/* ==========================================================================
+   Plugin icons
+   ========================================================================== */
+
+/*Plugin Dashboard*/
+
+  #rdb-refresh:before,
+  #rdb-reset:before {
+    content: "\f021";
+  }
+  
+  .rdb-checkbox-link:before {
+    content: "\f00c";
+    color: @icon-color;
+  }
+  
+  .rdb-checkbox-link.rdb-checkbox-link-enabled:before {
+    color: @green; 
+  }
+  
+  #rdb-option-fullscreen:before {
+    content: "\f0b2";
+  }
+
+  .sort-handle:before {
+    content: "\f07d";  
+  }
+  
+  .icon.found.icon-checked:before {
+    content: "\f00c";
+    font-size: 16px;
+    color: @green;
+  }
+  
+  .icon.unknown:before {
+    content: "\f059";
+    font-size: 16px;
+    color: @blue;
+  }
+  
+  .icon.found.icon-warning:before {
+    content: "\f071";
+    font-size: 16px;
+    color: @orange;
+  }
+  
+
+/*Plugin Products*/
+  
+  .icon-order-add:before {
+    content: "\f217";
+  }
+
+/*My Page*/
+
+div.projects h3:before {
+  content: "\f03a";
+}
+
+div.news h3:before {
+  content: "\f1ea";
+}
+
+/*Favourite icon - star*/
+
+.my-project:before, 
+.icon-fav-off_before, 
+.icon-fav:before {
+  content: "\f005";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*New and edit issue: add plus icon and remove image */
+.edit_issue .splitcontentleft, .new_issue .splitcontentleft {
+  p + p + p {
+  
+    a {
+      margin-right: 8px;
+      margin-top: 0.5*@GGW;
+      display: inline-block;
+      font: normal normal normal 14px/1 FontAwesome;
+      font-size: inherit;
+      text-rendering: auto;
+      position: relative;
+      top: 4px;
+      text-decoration: none;
+    }
+    
+    img {
+      display: none;
+    }
+    
+    a:before {
+      content: "\f055";
+      font-size: 16px;
+      color: @green;
+    }
+  }  
+}
+
+#operation_form #operation_contact_id_add_link,
+#order_form #order_contact_id_add_link,
+.checklist-item span.icon-add {
+  margin-right: 8px;
+  margin-top: 0.5*@GGW;
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  position: relative;
+  top: 4px;
+  text-decoration: none;
+    
+    img {
+      display: none;
+    }
+    
+    &:before {
+      content: "\f055";
+      font-size: 16px;
+      color: @green;
+    }
+}
+
+.checklist-item span.icon-add.icon {
+  padding-left: 0;
+}
+
+.checklist-item span.icon-add.icon:hover {
+  cursor: pointer;
+}
+
+.fa-external-link:before {
+  font-size: 14px !important;
+}
+
+
+#sidebar #watchers .delete img {
+  display: inline-block !important;
+}
+
+.fa.fa-caret-right:before, .fa.fa-caret-left:before {
+  margin-right: 0 !important;
+}
+
+tr.issue.idnt td.subject a.fa:before {
+  margin-right: 8px !important;
+}
+
+.contextual .icon-stop:before, .contextual .icon-start:before {
+  font-size: 16px;
+}
+
+.icon-start, .icon-stop {
+  padding-left: 0 !important;
+}
+
+#account .icon-stop:before, .contextual .icon-stop:before {
+  content: "\f04d";
+  color: @icon-color;
+}
+
+#account .icon-stop:hover:before, .contextual .icon-stop:hover:before {
+  color: @red;
+}
+
+#account .icon-start:before, .contextual .icon-start:before {
+  content: "\f01d";
+  color: @green;
+}
+
+#account .icon-start:hover:before, .contextual .icon-start:hover:before {
+  color: @green;
+}
+
+a.remove-upload:before, .fa-exclamation-circle:before, .fa-exclamation-triangle:before {
+  content: "\f00d";
+  color: @red;
+}
+
+.fa-plus-circle:before, #header #main-menu li a.new-issue:hover:before {
+  color: @green !important;
+}
+
+.fa-plus-circle:before {
+  .transition;
+}
+
+#header #main-menu li a.new-issue:before {
+  color: @white;
+}
+
+.my-project.fa-star:before {
+  color: @yellow !important;
+}
+
+.fa-check:before, .fa-floppy-o:before, .fa-arrow-circle-right:before, .fa-bullseye:before, .icon-time-add:before {
+  color: @green;
+}
+
+.fa-times:before, .fa-arrow-circle-left:before {
+  color: @red;
+}
+
+.fa-times:before {
+  .transition;
+}
+
+.fa-times:hover:before,
+.fa-times:focus:before {
+  .rotate;
+}
+
+.icon-projects:before, .icon-package:before {
+  font-size: @BFS !important;
+}
+
+.fa-pencil-square-o:before, .fa-rss-square:before {
+  color: @orange;
+}
+
+
+
+#content > .contextual a.fa-pencil-square-o:before {
+  content: none !important;
+}
+
+.toggle-multiselect:before {
+  content: "\f0fe";
+}
+
+/* ------------ Repositories ------------ */
+.controller-repositories {
+  
+  .fa:before {
+    content: none;
+  }
+  .icon-folder { background-image: url(../../../../images/folder.png); }
+  .open .icon-folder { background-image: url(../../../../images/folder_open.png); }
+  .icon-file { background-image: url(../../../../images/files/default.png); }
+  .icon-file.text-plain { background-image: url(../../../../images/files/text.png); }
+  .icon-file.text-x-c { background-image: url(../../../../images/files/c.png); }
+  .icon-file.text-x-csharp { background-image: url(../../../../images/files/csharp.png); }
+  .icon-file.text-x-java { background-image: url(../../../../images/files/java.png); }
+  .icon-file.text-x-javascript { background-image: url(../../../../images/files/js.png); }
+  .icon-file.text-x-php { background-image: url(../../../../images/files/php.png); }
+  .icon-file.text-x-ruby { background-image: url(../../../../images/files/ruby.png); }
+  .icon-file.text-xml { background-image: url(../../../../images/files/xml.png); }
+  .icon-file.text-css { background-image: url(../../../../images/files/css.png); }
+  .icon-file.text-html { background-image: url(../../../../images/files/html.png); }
+  .icon-file.image-gif { background-image: url(../../../../images/files/image.png); }
+  .icon-file.image-jpeg { background-image: url(../../../../images/files/image.png); }
+  .icon-file.image-png { background-image: url(../../../../images/files/image.png); }
+  .icon-file.image-tiff { background-image: url(../../../../images/files/image.png); }
+  .icon-file.application-pdf { background-image: url(../../../../images/files/pdf.png); }
+  .icon-file.application-zip { background-image: url(../../../../images/files/zip.png); }
+  .icon-file.application-x-gzip { background-image: url(../../../../images/files/zip.png); }  
+  tr span.expander {background-image: url(../../../../images/bullet_toggle_plus.png); padding-left: 8px; margin-left: 0; cursor: pointer;}
+  tr.open span.expander {background-image: url(../../../../images/bullet_toggle_minus.png);}
+}
+
+.journal .icon-only {
+  font-size: 0;
+}
+
+@media (max-width: 560px) {
+  
+  #header #main-menu li a.new-issue:before {
+    content: "\f067";
+  }
+  
+  #quick-search label a:before {
+    content: "\f002";
+    font-size: 16px !important;
+    color: @icon-color;
+    line-height: 40px;
+  }
+  
+  #main-menu:before {
+    display: inline-block;
+    font: normal normal normal 30px/1 FontAwesome !important;
+    color: @nav-color;
+    font-size: inherit;
+    text-rendering: auto;
+    margin: 6px 0 0 12px;
+    content: "\f039";
+    cursor: pointer;
+  }
+}  
+
+/* ==========================================================================
+   Assorted
+   ========================================================================== */
+
+.icon-only {
+  color: transparent !important;
+}
+
+
+  
+  
+  
+  
+  
+  
