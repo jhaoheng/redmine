@@ -3,3 +3,10 @@
 ./plugins/*
 !./plugins/img/*
 !./plugins/plugins.sh
+
+# worker
+./worker/*.log
+./worker/db_replicate/*.sql
+!./worker/db_replicate/.gitkeep
+./worker/cron.d/*
+!./worker/cron.d/.gitkeep

@@ -15,6 +15,9 @@
 3. phpmyadmin
     - localhost:8001
     - root/ `password, please see docker-compose.yml`
+4. worker : 負責處理 redmine 資料庫備份
+    - ![backup](./assets/backup.png)
+    - 預設備份時間請參考 docker-compose.yml
 
 # 資料轉移
 1. 登入 phpMyAdmin, 帳號 root, 密碼請參考 docker-compose. 確定 server port 8001 有對外開放
@@ -24,7 +27,6 @@
 5. 登入驗證資料
 
 # plugins
-
 > 預設的 container 並無安裝任何 plguins
 
 ## plugins script 預設提供以下常用工具

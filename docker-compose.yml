@@ -1,4 +1,4 @@
-version: '3.0'
+version: '3.5'
 services:
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
@@ -8,6 +8,8 @@ services:
     ports:
       - 8001:80
     restart: always
+    networks:
+      - redmine_net
 
   db:
     image: mariadb:10.2.12
@@ -15,8 +17,11 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: redmine
+    working_dir: /var/lib/mysql/
     restart: always
     command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    networks:
+      - redmine_net
 
   redmine:
     image: redmine:3.3.6
@@ -34,6 +39,8 @@ services:
       - ./config/configuration.yml:/usr/src/redmine/config/configuration.yml
       - ./plugins/plugins.sh:/usr/src/plugins/plugins.sh
     restart: always
+    networks:
+      - redmine_net
 
   nginx:
     image: nginx:1.15.0 
@@ -45,4 +52,27 @@ services:
     volumes:
       - ./nginx/conf.d:/etc/nginx/conf.d
       - ./nginx/ssl:/etc/nginx/ssl
+    command: sh -c "nginx -g 'daemon off;'"
+    networks:
+      - redmine_net
+
+  worker4backup:
+    build: ./worker
+    image: redmine_worker4backup
+    container_name: redmine_worker4backup
+    depends_on: 
+      - redmine
+    environment:
+      - replicate_max_count=5 # default is : 5
+      - HowManayTimeToBackup=* * * * * # default is : 0 */4 * * *
+    volumes:
+      - ./worker:/home/worker
+    command: sh -c "chmod 644 /home/worker/entrypoint.sh && bash /home/worker/entrypoint.sh"
     tty: true
+    networks:
+      - redmine_net
+    
+
+networks:
+  redmine_net:
+    name: redmine_net
