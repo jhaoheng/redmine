@@ -13,7 +13,7 @@ services:
     image: mariadb:10.2.12
     container_name: redmine-mariadb
     environment:
-      MYSQL_ROOT_PASSWORD: 74cc1c60799e0a786ac7094b532f01b1
+      MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: redmine
     restart: always
     command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
@@ -25,7 +25,7 @@ services:
       - 8000:3000
     environment:
       REDMINE_DB_MYSQL: db
-      REDMINE_DB_PASSWORD: 74cc1c60799e0a786ac7094b532f01b1
+      REDMINE_DB_PASSWORD: root
       REDMINE_PLUGINS_MIGRATE: 1
     depends_on:
       - db
