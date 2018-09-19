@@ -1,5 +1,4 @@
-# how to use
-    
+# how to use 
 1. docker-compose up -d 
 	- **若要開啟 email(google) 寄送功能，填寫 configuration.yml，設定好帳號密碼**
 2. 開啟瀏覽器, `localhost:8000`, 預設帳密 admin/admin
@@ -11,11 +10,18 @@
 1. mysql
     - 預設為 utf-8
 2. redmine
-    - localhost:8000
+    - `http://localhost:8000` or `https://localhost`
     - admin/admin
 3. phpmyadmin
     - localhost:8001
-    - root/root
+    - root/ `password, please see docker-compose.yml`
+
+# 資料轉移
+1. 登入 phpMyAdmin, 帳號 root, 密碼請參考 docker-compose. 確定 server port 8001 有對外開放
+2. 匯出 redmine 資料, 選擇『快速』匯出 sql 格式, 會得到 redmine.sql
+3. 登入要匯入的 phpMyAdmin, 若有 redmine 資料庫, 請刪除後, 建立一個空的（沒有任何 table）資料庫
+4. 匯入 redmine.sql 到 redmine 下
+5. 登入驗證資料
 
 # plugins
 
